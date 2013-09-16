@@ -43,7 +43,7 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/5Akmkpu0z/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/cwdmt8es5/style.css"/>
 
     </head>
 
@@ -53,8 +53,14 @@
     
   <header class="main">
         
-    <div class="title">
-      <h1 class="fade"><a href="/">{Title}</a></h1>
+    <div class="title fade">
+        <h1><a href="/">{Title}</a></h1>
+        {block:HasPages}
+            /
+            {block:Pages}
+                <span class="page"><a href="{URL}">{Label}</a></span>
+            {/block:Pages}
+        {/block:HasPages}
     </div>
 
 

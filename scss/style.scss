@@ -1,23 +1,23 @@
 /* version 0.1.0 */
 
-$font-size: 13px;
+@import "variables";
 
 body {
     background-color: #fbfbfb;
     font-family: Helvetica, Arial, Sans-serif;
     font-size: $font-size;
     line-height: 1.6em;
-    color: #3f3f3f;
+    color: $color-font;
     padding: 40px 20px;
     margin: 0;
 }
 
 a {
-  color: #3f3f3f;
+  color: $color-font;
   text-decoration: none;
 
   &:hover {
-    color: #3f3f3f;
+    color: $color-font;
     border-bottom: 1px solid #7f7f7f;
     padding-bottom: 2px;
   }
@@ -28,7 +28,8 @@ h1 {
     font-size: 1em;
     font-weight: normal;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 5px 0 0;
+    display: inline;
 }
 
 #container {
@@ -202,4 +203,13 @@ header.main {
   }
 
 
+}
+
+
+
+.page {
+    padding: 0 0 0 5px;
+    a {
+        color: lighten($color-font, 55%);
+    }
 }
