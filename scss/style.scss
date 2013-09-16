@@ -167,10 +167,10 @@ header.main {
 
 .masonry,
 .masonry .masonry-brick {
-  -webkit-transition-duration: 0.7s;
-     -moz-transition-duration: 0.7s;
-       -o-transition-duration: 0.7s;
-          transition-duration: 0.7s;
+  -webkit-transition-duration: 0.6s;
+     -moz-transition-duration: 0.6s;
+       -o-transition-duration: 0.6s;
+          transition-duration: 0.6s;
 }
 
 .masonry {
@@ -188,18 +188,18 @@ header.main {
 }
 
 
-
-
 // iPad
 
-@media screen and (max-width: 656px) {
+@media screen and (max-width: 640px) {
 
   .double {
     width: 260px;
 
     img {
-      width: 260px;
+      width: 100%;
+      height: auto;
     }
   }
+
 
 }
