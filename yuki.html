@@ -43,7 +43,7 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/cwdmt8es5/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/Hr4mt8vb7/style.css"/>
 
     </head>
 
@@ -51,281 +51,270 @@
     
 <div id="container">
     
-  <header class="main">
+    <header class="main">
         
-    <div class="title fade">
-        <h1><a href="/">{Title}</a></h1>
-        {block:HasPages}
-            /
-            {block:Pages}
-                <span class="page"><a href="{URL}">{Label}</a></span>
-            {/block:Pages}
-        {/block:HasPages}
-    </div>
-
-
-        
-        
-        {block:TagPage}
-        <div class="tagged fade">
-        Viewing all entries marked "{Tag}"
+        <div class="title fade">
+            <h1><a href="/">{Title}</a></h1>
+            {block:HasPages}
+                /
+                {block:Pages}
+                    <span class="page"><a href="{URL}">{Label}</a></span>
+                {/block:Pages}
+            {/block:HasPages}
         </div>
+
+
+        {block:TagPage}
+            <div class="tagged fade">
+                Viewing all entries marked "{Tag}"
+            </div>
         {/block:TagPage}
         
-  </header>
+    </header>
 
 
 
 
 
 
-<section id="posts">
+    <section id="posts">
 
-{block:Posts}
+    {block:Posts}
+              
+        {block:Post1}
+            {block:IndexPage}
+                <section class="post fade double">
+            {/block:IndexPage}
+
+            {block:PermalinkPage}
+                <section class="post fade double">
+            {/block:PermalinkPage}
+        {/block:Post1}
+
+
+
+        {block:Post2}</section><section class="post fade single">{/block:Post2}
+        {block:Post3}</section><section class="post fade single">{/block:Post3}
+        {block:Post4}</section><section class="post fade single">{/block:Post4}
+        {block:Post5}</section><section class="post fade single">{/block:Post5}
+        {block:Post6}</section><section class="post fade double">{/block:Post6}
+        {block:Post7}</section><section class="post fade single">{/block:Post7}
+        {block:Post8}</section><section class="post fade single">{/block:Post8}
+        {block:Post9}</section><section class="post fade single">{/block:Post9}
+        {block:Post10}</section><section class="post fade single">{/block:Post10}
+        {block:Post11}</section><section class="post fade double">{/block:Post11}
+        {block:Post12}</section><section class="post fade single">{/block:Post12}
+        {block:Post13}</section><section class="post fade single">{/block:Post13}
+        {block:Post14}</section><section class="post fade single">{/block:Post14}
+        {block:Post15}</section><section class="post fade single">{/block:Post15}
+
+
+
+
+
+        {block:Text}
+        <!-- Text Post -->
+
+            {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            {Body}
+
+        {/block:Text}
+
+
+
+
+
+        {block:Photo}
+        <!-- Photo post -->
+
+            {block:IndexPage}
+                <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+            {/block:IndexPage}
           
-  {block:Post1}
-    {block:IndexPage}
-      <section class="post fade double">
-    {/block:IndexPage}
+            {block:PermalinkPage}
+                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+            {/block:PermalinkPage}
 
-    {block:PermalinkPage}
-      <section class="post fade double">
-    {/block:PermalinkPage}
-  {/block:Post1}
-
-
-
-  {block:Post2}</section><section class="post fade single">{/block:Post2}
-  {block:Post3}</section><section class="post fade single">{/block:Post3}
-  {block:Post4}</section><section class="post fade single">{/block:Post4}
-  {block:Post5}</section><section class="post fade single">{/block:Post5}
-  {block:Post6}</section><section class="post fade double">{/block:Post6}
-  {block:Post7}</section><section class="post fade single">{/block:Post7}
-  {block:Post8}</section><section class="post fade single">{/block:Post8}
-  {block:Post9}</section><section class="post fade single">{/block:Post9}
-  {block:Post10}</section><section class="post fade single">{/block:Post10}
-  {block:Post11}</section><section class="post fade double">{/block:Post11}
-  {block:Post12}</section><section class="post fade single">{/block:Post12}
-  {block:Post13}</section><section class="post fade single">{/block:Post13}
-  {block:Post14}</section><section class="post fade single">{/block:Post14}
-  {block:Post15}</section><section class="post fade single">{/block:Post15}
-
-
-
-  <!-- text posts -->
-
-  {block:Text}
-
-    {block:Title}
-      <h3><a href="{Permalink}">{Title}</a></h3>
-    {/block:Title}
-
-    {Body}
-  {/block:Text}
-
-
-
-  <!-- photo posts -->
-
-  {block:Photo}
-
-    {block:IndexPage}
-      <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
-    {/block:IndexPage}
-      
-    {block:PermalinkPage}
-      <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-    {/block:PermalinkPage}
-
-  {/block:Photo}
-
-
-
-
-{block:Photoset}
-
-  {block:Photos}
-
-    {Block:IndexPage}
-    <a href="{Permalink}"><img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" /></a>
-    {/Block:IndexPage}
-
-    {Block:PermalinkPage}
-
-      <img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
-
-      {block:Caption}
-      {Caption}
-      {/block:Caption}
-    {/Block:PermalinkPage}
-
-  {/block:Photos}
-
-  {Block:PermalinkPage}
-      {block:Caption}
-        <div class="caption">{Caption}</div>
-      {/block:Caption}
-  {/Block:PermalinkPage}
-
-{/block:Photoset}
-
-
-
-
-  <!-- video posts -->
-
-  {block:Video}
-
-    {Video-700}
-
-    {block:Caption}
-      <div class="caption">{Caption}</div>
-    {/block:Caption}
-
-  {/block:Video}
-
-
-
-  <!-- quote posts -->
-
-  {block:Quote}
-
-    <div class="quote">
-      "{Quote}"
-
-      {block:Source}
-        <div class="source">{Source}</div>
-      {/block:Source}
-    </div>
-
-  {/block:Quote}
-
-
-
-  <!-- chat posts -->
-
-  {block:Chat}
-  <div class="chat">
-
-  {block:Title}
-  <h3><a href="{Permalink}">{Title}</a></h3>
-  {/block:Title}
-  <ul class="chat">
-  {block:Lines}
-  <li class="{Alt} user_{UserNumber}">
-  {block:Label}
-  <span class="label">{Label}</span>
-  {/block:Label}
-  {Line}
-  </li>
-  {/block:Lines}
-  </ul>
-
-  </div>
-  {/block:Chat}
-
-
-
-  <!-- link posts -->
-  {block:Link}
-
-  <div class="link">
-    <a href="{URL}" class="the-link" {Target}>{Name} &rarr;</a>
-
-    {block:Description}
-      <div class="description">{Description}</div>
-    {/block:Description}
-  </div>
-
-  {/block:Link}
+        {/block:Photo}
 
 
 
 
 
-  {block:PermalinkPage}
-  </section> <!-- img section -->
+        {block:Photoset}
+        <!-- Photoset post -->
 
-    {block:Date}
-    <section class="post fade single navigation">
-    <header>Posted</header>
-    {Month} {DayOfMonth}, {Year}
+            {block:Photos}
+
+                {Block:IndexPage}
+                    <a href="{Permalink}"><img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" /></a>
+                {/Block:IndexPage}
+
+                {Block:PermalinkPage}
+                    <img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                {/Block:PermalinkPage}
+
+            {/block:Photos}
+
+            {Block:PermalinkPage}
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            {/Block:PermalinkPage}
+
+        {/block:Photoset}
+
+
+
+
+
+        {block:Video}
+        <!-- Video post -->
+
+            {Video-700}
+
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
+
+        {/block:Video}
+
+
+
+
+
+        {block:Quote}
+        <!-- Quote post -->
+
+            <div class="quote">
+                "{Quote}"
+
+                {block:Source}
+                    <div class="source">{Source}</div>
+                {/block:Source}
+            </div>
+
+        {/block:Quote}
+
+
+
+
+
+        {block:Chat}
+        <!-- Chat post -->
+
+            <div class="chat">
+
+                {block:Title}
+                    <h3><a href="{Permalink}">{Title}</a></h3>
+                {/block:Title}
+
+                <ul class="chat">
+                    {block:Lines}
+                        <li class="{Alt} user_{UserNumber}">
+                            {block:Label}
+                                <span class="label">{Label}</span>
+                            
+                            {/block:Label}
+
+                            {Line}
+                        </li>
+                    {/block:Lines}
+                </ul>
+
+            </div>
+
+        {/block:Chat}
+
+
+
+
+
+        {block:Link}
+        <!-- Link post -->
+
+            <div class="link">
+                <a href="{URL}" class="the-link" {Target}>{Name} &rarr;</a>
+
+                {block:Description}
+                    <div class="description">{Description}</div>
+                {/block:Description}
+            </div>
+
+        {/block:Link}
+
+
+
+
+
+        {block:PermalinkPage}
+            </section> <!-- img section -->
+
+            {block:Date}
+                <section class="post fade single navigation">
+                    <header>Posted</header>
+                    {Month} {DayOfMonth}, {Year}
+                </section>
+            {/block:Date}
+
+
+            {block:HasTags}
+                <section class="post fade single navigation">
+                    <header>Tagged</header>
+                    {block:Tags}
+                        <a href="{TagURL}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                </section>
+            {/block:HasTags}
+
+
+            {block:ContentSource}
+                <section class="post fade single navigation">
+                    <header>Content source</header>
+                    <a href="{SourceURL}" target="_blank">{SourceTitle}</a>
+                </section>
+            {/block:ContentSource}
+
+
+            {block:RebloggedFrom}
+                <section class="post fade single navigation">
+                    <header>Reblogged from</header>
+                    <a href="{ReblogParentURL}" target="_blank">{ReblogParentTitle}</a>
+                </section>
+            {/block:RebloggedFrom}
+
+
+        {/block:PermalinkPage}
+
+
+
+    {/block:Posts}
+
     </section>
-    {/block:Date}
 
 
 
+    {block:Pagination}
 
-    {block:HasTags}
-    <section class="post fade single navigation">
-    <header>Tagged</header>
-    {block:Tags}
-    <a href="{TagURL}">{Tag}</a>&nbsp;
-    {/block:Tags}
-    </section>
-    {/block:HasTags}
+        {block:PreviousPage}
+            <section class="post fade navigation">
+                <a href="{PreviousPage}">Previous Page</a>
+            </section>
+        {/block:PreviousPage}
 
+        {block:NextPage}
+            <section class="post fade navigation">
+                <a href="{NextPage}">Next Page</a>
+            </section>
+        {/block:NextPage}
 
-
-
-    {block:ContentSource}
-    <section class="post fade single navigation">
-    <header>Content source</header>
-    <a href="{SourceURL}" target="_blank">{SourceTitle}</a>
-    </section>
-    {/block:ContentSource}
-
-
-
-
-    {block:RebloggedFrom}
-    <section class="post fade single navigation">
-    <header>Reblogged from</header>
-    <a href="{ReblogParentURL}" target="_blank">{ReblogParentTitle}</a>
-    </section>
-    {/block:RebloggedFrom}
-
-
-
-
-    {block:PreviousPost}
-    <section class="post fade navigation">
-    <a href="{PreviousPost}">Previous Entry</a>
-    </section>
-    {/block:PreviousPost}
-
-
-    {block:NextPost}
-    <section class="post fade navigation">
-    Newer Entry
-    </section>
-    {/block:NextPost}
-
-
-  {/block:PermalinkPage}
-
-
-
-{/block:Posts}
-</section>
-
-
-
-{block:Pagination}
-
-  {block:PreviousPage}
-    <section class="post fade navigation">
-      <a href="{PreviousPage}">Previous Page</a>
-    </section>
-  {/block:PreviousPage}
-
-  {block:NextPage}
-    <section class="post fade navigation">
-      <a href="{NextPage}">Next Page</a>
-    </section>
-  {/block:NextPage}
-
-{/block:Pagination}
+    {/block:Pagination}
 
     
 </div> <!-- #container -->
@@ -336,25 +325,25 @@
 
 <script>
 $(window).load(function(){
-  $(".fade").each(function(i) {
-    $(this).delay(110*i).fadeIn();
-  });
-
-  $('#posts').masonry({
-      itemSelector: '.post',
-      columnWidth: 300,
-      isFitWidth: true,
-      isAnimated: !Modernizr.csstransitions
-  });
-  
-{block:IndexPage}
-    $("img").hover(function() {
-      $(this).stop().animate({opacity: "0.4"}, '400');
-    },
-    function() {
-      $(this).stop().animate({opacity: "1"}, '400');
+    $(".fade").each(function(i) {
+        $(this).delay(110*i).fadeIn();
     });
-{/block:IndexPage}
+
+    $('#posts').masonry({
+        itemSelector: '.post',
+        columnWidth: 300,
+        isFitWidth: true,
+        isAnimated: !Modernizr.csstransitions
+    });
+  
+    {block:IndexPage}
+        $("img").hover(function() {
+            $(this).stop().animate({opacity: "0.4"}, '400');
+        },
+        function() {
+            $(this).stop().animate({opacity: "1"}, '400');
+        });
+    {/block:IndexPage}
   
 });
 </script>
