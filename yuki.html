@@ -2,23 +2,23 @@
 
 <!--
 
-                                  88         88  
-                                  88         ""  
-                                  88             
-        8b       d8  88       88  88   ,d8   88  
-        `8b     d8'  88       88  88 ,a8"    88  
-         `8b   d8'   88       88  8888[      88  
-          `8b,d8'    "8a,   ,a88  88`"Yba,   88  
-            Y88'      `"YbbdP'Y8  88   `Y8a  88  
-            d8'    
-           d8'     0.1.0                       
-          
+                                  88         88
+                                  88         ""
+                                  88
+        8b       d8  88       88  88   ,d8   88
+        `8b     d8'  88       88  88 ,a8"    88
+         `8b   d8'   88       88  8888[      88
+          `8b,d8'    "8a,   ,a88  88`"Yba,   88
+            Y88'      `"YbbdP'Y8  88   `Y8a  88
+            d8'
+           d8'     0.1.1
+
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
 
           hello@corygibbons.com
           corygibbons.com
-          @corygibbons                     
+          @corygibbons
 
 -->
 
@@ -43,16 +43,16 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/en0mt8vh6/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://yu.ki/style.css"/>
 
     </head>
 
 <body>
-    
+
 <div id="container">
-    
+
     <header class="main">
-        
+
         <div class="title fade">
             <h1><a href="/">{Title}</a></h1>
             {block:HasPages}
@@ -69,7 +69,7 @@
                 Viewing all entries marked "{Tag}"
             </div>
         {/block:TagPage}
-        
+
     </header>
 
 
@@ -80,7 +80,7 @@
     <section id="posts">
 
     {block:Posts}
-              
+
         {block:Post1}
             {block:IndexPage}
                 <section class="post fade double">
@@ -133,7 +133,7 @@
             {block:IndexPage}
                 <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
             {/block:IndexPage}
-          
+
             {block:PermalinkPage}
                 <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
             {/block:PermalinkPage}
@@ -220,7 +220,7 @@
                         <li class="{Alt} user_{UserNumber}">
                             {block:Label}
                                 <span class="label">{Label}</span>
-                            
+
                             {/block:Label}
 
                             {Line}
@@ -303,50 +303,98 @@
     {block:Pagination}
 
         {block:PreviousPage}
-            <section class="post fade navigation">
+            <section class="navigation">
                 <a href="{PreviousPage}">Previous Page</a>
             </section>
         {/block:PreviousPage}
 
         {block:NextPage}
-            <section class="post fade navigation">
-                <a href="{NextPage}">Next Page</a>
+            <section class="navigation">
+                <a href="{NextPage}" class="next-page">Next Page</a>
             </section>
         {/block:NextPage}
 
     {/block:Pagination}
 
-    
+
 </div> <!-- #container -->
 
+<div class="neato"></div>
+    <footer class="primary-footer fade">
+        <a href="#" class="load-more"><span class="load-more-entries">+</span></a>
+    </footer>
 
+<div class="woah"></div>
+<script src="http://static.tumblr.com/iwtk77u/Yhym2yygt/jquery.imagesloaded.min.js"></script>
 <!-- jQuery Masonry -->
 <script src="http://static.tumblr.com/j9zrgpw/M6qmg12yb/jquery.masonry.min.js"></script>
+<script src="http://static.tumblr.com/wgijwsy/u2vm2hxv6/jquery.infinitescroll.min.js"></script>
 
 <script>
-$(window).load(function(){
-    $(".fade").each(function(i) {
-        $(this).delay(110*i).fadeIn();
+(function () {
+
+    var $tumblelog = $('#posts');
+    var $fade = $('.fade');
+    $tumblelog.infinitescroll({
+        debug: true,
+        loading: {
+            img: 'data:image/gif;base64,R0lGODlhAQABAHAAACH5BAUAAAAALAAAAAABAAEAAAICRAEAOw==',
+            finished: undefined,
+            finishedMsg: '',
+            msg: null,
+            msgText: '',
+            speed: 'fast',
+            start: undefined
+        },
+        state: {
+            currPage: {CurrentPage}
+        },
+        pathParse: function() {
+            return ['http://{Name}.tumblr.com/page/', '']
+        },
+        navSelector: ".navigation",
+        nextSelector: ".navigation a.next-page",
+        itemSelector: ".post",
+        errorCallback: function (selector, msg) {
+            $('.load-more').animate({
+                opacity: 0
+            });
+        }
+    },
+
+    function (newElements) {
+        var $newElems = $(newElements).css({
+            opacity: 0
+        });
+        $newElems.imagesLoaded(function () {
+            $newElems.animate({
+                opacity: 1
+            }).fadeIn();
+
+            $tumblelog.masonry('appended', $newElems);
+        });
+    });
+    $tumblelog.imagesLoaded(function () {
+        $fade.each(function(i) {
+            $(this).delay(110*i).fadeIn();
+        });
+
+        $tumblelog.masonry({
+            columnWidth: 300,
+            isFitWidth: true,
+            isAnimated: !Modernizr.csstransitions
+        });
     });
 
-    $('#posts').masonry({
-        itemSelector: '.post',
-        columnWidth: 300,
-        isFitWidth: true,
-        isAnimated: !Modernizr.csstransitions
+    $(window).unbind('.infscr');
+
+    $( ".load-more" ).click(function() {
+        $('#posts').infinitescroll('retrieve');
+        return false;
     });
-  
-    {block:IndexPage}
-        $("img").hover(function() {
-            $(this).stop().animate({opacity: "0.4"}, '400');
-        },
-        function() {
-            $(this).stop().animate({opacity: "1"}, '400');
-        });
-    {/block:IndexPage}
-  
-});
+
+})();
 </script>
-    
+
     </body>
 </html>

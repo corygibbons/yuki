@@ -34,6 +34,22 @@ header.main
     padding: 0 20px
     text-align: center
 
+footer.primary-footer
+    //background: yellow
+    text-align: center
+    margin: 0 auto 40px auto
+    clear: both
+    float: left
+    width: 100%
+    padding: 30px 0
+
+    .load-more-entries
+        padding: 12px 22px
+        background: darken(white, 5%)
+        font-size: 1.4em
+        &:hover
+            background: darken(white, 8%)
+
 #posts
     margin: 0 auto
     clear: both
@@ -53,8 +69,6 @@ header.main
         margin: 0
         padding: 0
         width: 100%
-
-
 
 
 
@@ -107,27 +121,6 @@ header.main
 
 
 
-/**** Transitions ****/
-
-.masonry,
-.masonry .masonry-brick
-    -webkit-transition-duration: 0.6s
-    -moz-transition-duration: 0.6s
-    -o-transition-duration: 0.6s
-    transition-duration: 0.6s
-
-.masonry
-    -webkit-transition-property: height, width
-    -moz-transition-property: height, width
-    -o-transition-property: height, width
-    transition-property: height, width
-
-.masonry .masonry-brick
-    -webkit-transition-property: left, right, top
-    -moz-transition-property: left, right, top
-    -o-transition-property: left, right, top
-    transition-property: left, right, top
-
 
 // iPad
 
@@ -150,3 +143,15 @@ header.main
     padding: 0 0 0 5px
     a
         color: lighten($color-font, 55%)
+
+
+.load-more-posts
+    background: salmon
+    height: 100px
+    width: 200px
+    position: fixed
+    left: 50%
+    top: 50%
+
+.navigation
+    display: none
