@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.1.1
+           d8'     0.2.0
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,7 +43,13 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://yu.ki/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/hwMmwoquz/style.css"/>
+
+        <!-- Defaults -->
+
+        <meta name="select:Scroll" content="click" title="Click to Load">
+        <meta name="select:Scroll" content="automatic" title="Automatic">
+        <meta name="if:Infinite Scroll" content="1"/>
 
     </head>
 
@@ -319,12 +325,12 @@
 
 </div> <!-- #container -->
 
-<div class="neato"></div>
+
     <footer class="primary-footer fade">
         <a href="#" class="load-more"><span class="load-more-entries">+</span></a>
     </footer>
 
-<div class="woah"></div>
+
 <script src="http://static.tumblr.com/iwtk77u/Yhym2yygt/jquery.imagesloaded.min.js"></script>
 <!-- jQuery Masonry -->
 <script src="http://static.tumblr.com/j9zrgpw/M6qmg12yb/jquery.masonry.min.js"></script>
@@ -332,35 +338,45 @@
 
 <script>
 (function () {
-
+    var $load_style = "{select:Scroll}";
     var $tumblelog = $('#posts');
-    var $fade = $('.fade');
-    $tumblelog.infinitescroll({
-        debug: true,
-        loading: {
-            img: 'data:image/gif;base64,R0lGODlhAQABAHAAACH5BAUAAAAALAAAAAABAAEAAAICRAEAOw==',
-            finished: undefined,
-            finishedMsg: '',
-            msg: null,
-            msgText: '',
-            speed: 'fast',
-            start: undefined
+
+    {block:IfInfiniteScroll}
+        var $fade = $('.fade');
+    {/block:IfInfiniteScroll}
+    {block:IfNotInfiniteScroll}
+        var $fade = $('.fade, .navigation');
+    {block:IfNotInfiniteScroll}
+
+    $tumblelog.infinitescroll(
+        {block:IfInfiniteScroll}
+            {
+            debug: true,
+            loading: {
+                img: 'data:image/gif;base64,R0lGODlhAQABAHAAACH5BAUAAAAALAAAAAABAAEAAAICRAEAOw==',
+                finished: undefined,
+                finishedMsg: '',
+                msg: null,
+                msgText: '',
+                speed: 'fast',
+                start: undefined
+            },
+            state: {
+                currPage: {CurrentPage}
+            },
+            pathParse: function() {
+                return ['http://{Name}.tumblr.com/page/', '']
+            },
+            navSelector: ".navigation",
+            nextSelector: ".navigation a.next-page",
+            itemSelector: ".post",
+            errorCallback: function (selector, msg) {
+                $('.load-more').animate({
+                    opacity: 0
+                });
+            }
         },
-        state: {
-            currPage: {CurrentPage}
-        },
-        pathParse: function() {
-            return ['http://{Name}.tumblr.com/page/', '']
-        },
-        navSelector: ".navigation",
-        nextSelector: ".navigation a.next-page",
-        itemSelector: ".post",
-        errorCallback: function (selector, msg) {
-            $('.load-more').animate({
-                opacity: 0
-            });
-        }
-    },
+    {/block:IfInfiniteScroll}
 
     function (newElements) {
         var $newElems = $(newElements).css({
@@ -386,12 +402,20 @@
         });
     });
 
-    $(window).unbind('.infscr');
+    if ($load_style == "click" ) {
+        $(window).unbind('.infscr');
+        $( ".load-more" ).click(function() {
+            $('#posts').infinitescroll('retrieve');
+            return false;
+        });
+    }
+    else {
+        $('.load-more').remove();
+    }
 
-    $( ".load-more" ).click(function() {
-        $('#posts').infinitescroll('retrieve');
-        return false;
-    });
+    {block:IfNotInfiniteScroll}
+        $('.load-more').remove();
+    {/block:IfNotInfiniteScroll}
 
 })();
 </script>
