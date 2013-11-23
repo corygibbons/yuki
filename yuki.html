@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.0
+           d8'     0.2.1
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -325,10 +325,11 @@
 
 </div> <!-- #container -->
 
-
+{block:IndexPage}
     <footer class="primary-footer fade">
         <a href="#" class="load-more"><span class="load-more-entries">+</span></a>
     </footer>
+{/block:IndexPage}
 
 
 <script src="http://static.tumblr.com/iwtk77u/Yhym2yygt/jquery.imagesloaded.min.js"></script>
@@ -346,7 +347,7 @@
     {/block:IfInfiniteScroll}
     {block:IfNotInfiniteScroll}
         var $fade = $('.fade, .navigation');
-    {block:IfNotInfiniteScroll}
+    {/block:IfNotInfiniteScroll}
 
     $tumblelog.infinitescroll(
         {block:IfInfiniteScroll}
