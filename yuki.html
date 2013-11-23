@@ -272,7 +272,7 @@
 
             {block:HasTags}
                 <section class="post fade single navigation">
-                    <header>Tagged</header>
+                    <header>{lang:Tagged}</header>
                     {block:Tags}
                         <a href="{TagURL}">{Tag}</a>&nbsp;
                     {/block:Tags}
@@ -282,7 +282,7 @@
 
             {block:ContentSource}
                 <section class="post fade single navigation">
-                    <header>Content source</header>
+                    <header>{lang:Source}</header>
                     <a href="{SourceURL}" target="_blank">{SourceTitle}</a>
                 </section>
             {/block:ContentSource}
@@ -290,7 +290,7 @@
 
             {block:RebloggedFrom}
                 <section class="post fade single navigation">
-                    <header>Reblogged from</header>
+                    <header>{lang:Reblogged from}</header>
                     <a href="{ReblogParentURL}" target="_blank">{ReblogParentTitle}</a>
                 </section>
             {/block:RebloggedFrom}
@@ -310,13 +310,13 @@
 
         {block:PreviousPage}
             <section class="navigation">
-                <a href="{PreviousPage}">Previous Page</a>
+                <a href="{PreviousPage}">{lang:Previous page}</a>
             </section>
         {/block:PreviousPage}
 
         {block:NextPage}
             <section class="navigation">
-                <a href="{NextPage}" class="next-page">Next Page</a>
+                <a href="{NextPage}" class="next-page">{lang:Next page}</a>
             </section>
         {/block:NextPage}
 
