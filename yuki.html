@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.4
+           d8'     0.2.5
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,7 +43,8 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/reEmxw4nv/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/S8rmxx2gq/style.css"/>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <!-- Defaults -->
 
@@ -120,13 +121,21 @@
 
         {block:Text}
         <!-- Text Post -->
+            <div class="text">
 
-            {block:Title}
-                <h3><a href="{Permalink}">{Title}</a></h3>
-            {/block:Title}
+                {Block:PermalinkPage}
+                    <hr>
+                {/Block:PermalinkPage}
 
-            {Body}
+                {block:Title}
+                    <h2><a href="{Permalink}">{Title}</a></h2>
+                {/block:Title}
 
+                <div class="text-body">
+                    {Body}
+                </div>
+
+            </div>
         {/block:Text}
 
 
@@ -208,6 +217,23 @@
 
 
 
+        {block:Audio}
+        <!-- Audio post -->
+            <div class="audio">
+
+                {Block:IndexPage}
+                    {block:AudioEmbed}
+                        {AudioEmbed-640}
+                    {/block:AudioEmbed}
+
+                {/Block:IndexPage}
+
+
+            </div>
+        {/block:Audio}
+
+
+
 
 
         {block:Quote}
@@ -261,7 +287,7 @@
         <!-- Link post -->
 
             <div class="link">
-                <a href="{URL}" class="the-link" {Target}>{Name} &rarr;</a>
+                <a href="{URL}" class="link-title" {Target}>{Name} <i class="fa fa-external-link fa-fw"></i></a>
 
                 {block:Description}
                     <div class="description">{Description}</div>
@@ -435,6 +461,13 @@
             }).fadeIn();
 
             $tumblelog.masonry('appended', $newElems);
+
+            $(".post").hover(function() {
+                $(this).find('img').stop().animate({"opacity": "0.4"}, 300);
+            }, function() {
+                $(this).find('img').stop().animate({"opacity": "1"}, 300);
+            });
+
         });
     });
     $tumblelog.imagesLoaded(function () {
@@ -471,10 +504,6 @@
     }, function() {
         $(this).find('img').stop().animate({"opacity": "1"}, 300);
     });
-
-
-
-
 
 
 })();
