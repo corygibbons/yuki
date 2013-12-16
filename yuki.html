@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.3
+           d8'     0.2.4
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,7 +43,7 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/jV4mxvtnh/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/reEmxw4nv/style.css"/>
 
         <!-- Defaults -->
 
@@ -184,13 +184,26 @@
 
         {block:Video}
         <!-- Video post -->
+            <div class="video">
 
-            {Video-700}
+                {Block:IndexPage}
+                    {block:VideoThumbnail}
+                        <a href="{Permalink}">
+                            <img src="{VideoThumbnailURL}" />
+                            <div class="video-play-button"></div>
+                        </a>
+                    {/block:VideoThumbnail}
+                {/Block:IndexPage}
 
-            {block:Caption}
-                <div class="caption">{Caption}</div>
-            {/block:Caption}
+                {Block:PermalinkPage}
+                    {Video-700}
 
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                {/Block:PermalinkPage}
+
+            </div>
         {/block:Video}
 
 
@@ -341,6 +354,40 @@
 
 <script>
 (function () {
+
+    function resizeVideo(){
+        var $video = $('.tumblr_video_container');
+
+        var videoWidth = $video.width(),
+            videoHeight = $video.height(),
+            videoRatio = (videoHeight/videoWidth),
+
+            newWidth = 560,
+            newHeight = Math.floor(newWidth*videoRatio),
+
+            mobileWidth = 260,
+            mobileHeight = Math.floor(mobileWidth*videoRatio);
+
+        if ($(window).width() < 640) {
+            $video.css('width', '100%').css('height', mobileHeight);
+            $video.find('iframe').height(mobileHeight);
+        }
+        else {
+            $video.css('width', '100%').css('height', newHeight);
+            $video.find('iframe').height(newHeight);
+        }
+
+        $(window).resize(function() {
+            if ($(window).width() < 640) {
+                $video.css('width', '100%').css('height', mobileHeight);
+            }
+            else {
+                $video.css('width', '100%').css('height', newHeight);
+            }
+        });
+    }
+    resizeVideo();
+
     var $load_style = "{select:Scroll}";
     var $tumblelog = $('#posts');
 
@@ -416,6 +463,19 @@
     {block:IfNotInfiniteScroll}
         $('.load-more').remove();
     {/block:IfNotInfiniteScroll}
+
+
+
+    $(".post").hover(function() {
+        $(this).find('img').stop().animate({"opacity": "0.4"}, 300);
+    }, function() {
+        $(this).find('img').stop().animate({"opacity": "1"}, 300);
+    });
+
+
+
+
+
 
 })();
 </script>

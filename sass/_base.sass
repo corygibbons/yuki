@@ -93,9 +93,15 @@ footer.primary-footer
     width: 560px
     float: left
 
+    +breakpoint(mobile)
+        width: 260px
+
     img
         width: 560px
         display: block
+        +breakpoint(mobile)
+            width: 260px
+            height: auto
 
 
 
@@ -114,23 +120,6 @@ footer.primary-footer
 
 .fade
     display: none
-
-
-
-
-// iPad
-
-@media screen and (max-width: 640px)
-
-    .double
-        width: 260px
-
-    img
-        width: 100%
-        height: auto
-
-
-
 
 
 
