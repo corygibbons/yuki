@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.5
+           d8'     0.2.6
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,7 +43,7 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/S8rmxx2gq/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/2elmy695z/style.css"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <!-- Defaults -->
@@ -51,6 +51,7 @@
         <meta name="select:Scroll" content="click" title="Click to Load">
         <meta name="select:Scroll" content="automatic" title="Automatic">
         <meta name="if:Infinite Scroll" content="1"/>
+        <meta name="if:Notes" content="0"/>
 
     </head>
 
@@ -337,6 +338,19 @@
             {/block:RebloggedFrom}
 
 
+            {block:IfNotes}
+                {block:PostNotes}
+                    <section class="post fade notes-container testclass">
+                        {block:NoteCount}
+                            <header>{NoteCountWithLabel}</header>
+                        {/block:NoteCount}
+                        {PostNotes}
+                    </section>
+                {/block:PostNotes}
+            {/block:IfNotes}
+
+
+
         {/block:PermalinkPage}
 
 
@@ -421,7 +435,7 @@
         var $fade = $('.fade');
     {/block:IfInfiniteScroll}
     {block:IfNotInfiniteScroll}
-        var $fade = $('.fade, .navigation');
+        var $fade = $('.fade, .navigation, .notes');
     {/block:IfNotInfiniteScroll}
 
     $tumblelog.infinitescroll(
