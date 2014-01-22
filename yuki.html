@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.6
+           d8'     0.2.7
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,15 +43,19 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/2elmy695z/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/f9cmzthpc/style.css"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <!-- Defaults -->
-
+        <meta name="color:Post Hover" content="#fbfbfb"/>
         <meta name="select:Scroll" content="click" title="Click to Load">
         <meta name="select:Scroll" content="automatic" title="Automatic">
         <meta name="if:Infinite Scroll" content="1"/>
         <meta name="if:Notes" content="0"/>
+
+        <style type="text/css">
+        .post-background { background: {color:Post Hover}; }
+        </style>
 
     </head>
 
@@ -147,11 +151,15 @@
         <!-- Photo post -->
 
             {block:IndexPage}
-                <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+                <div class="post-background">
+                    <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+                </div>
             {/block:IndexPage}
 
             {block:PermalinkPage}
-                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                <div class="post-background">
+                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                </div>
             {/block:PermalinkPage}
 
         {/block:Photo}
@@ -162,7 +170,7 @@
 
         {block:Photoset}
         <!-- Photoset post -->
-            <div class="photoset">
+            <div class="photoset post-background">
 
             {block:Photos}
 
@@ -194,7 +202,7 @@
 
         {block:Video}
         <!-- Video post -->
-            <div class="video">
+            <div class="video post-background">
 
                 {Block:IndexPage}
                     {block:VideoThumbnail}
