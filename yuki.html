@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.7
+           d8'     0.2.8
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -43,7 +43,7 @@
 		    <![endif]-->
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/f9cmzthpc/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/j9zrgpw/MFon38qg7/style.css"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
         <!-- Defaults -->
@@ -160,6 +160,9 @@
                 <div class="post-background">
                     <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
                 </div>
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
             {/block:PermalinkPage}
 
         {/block:Photo}
@@ -170,19 +173,19 @@
 
         {block:Photoset}
         <!-- Photoset post -->
-            <div class="photoset post-background">
 
             {block:Photos}
 
                 {Block:IndexPage}
-                    <a href="{Permalink}"><img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" /></a>
+                    <div class="photoset post-background">
+                        <a href="{Permalink}"><img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" /></a>
+                    </div>
                 {/Block:IndexPage}
 
                 {Block:PermalinkPage}
-                    <img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
-                    {block:Caption}
-                        {Caption}
-                    {/block:Caption}
+                    <div class="photoset post-background">
+                        <img src="{PhotoURL-500}" width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
+                    </div>
                 {/Block:PermalinkPage}
 
             {/block:Photos}
@@ -193,7 +196,6 @@
                 {/block:Caption}
             {/Block:PermalinkPage}
 
-            </div>
         {/block:Photoset}
 
 
@@ -202,26 +204,28 @@
 
         {block:Video}
         <!-- Video post -->
-            <div class="video post-background">
 
-                {Block:IndexPage}
+            {Block:IndexPage}
+                <div class="video post-background">
                     {block:VideoThumbnail}
                         <a href="{Permalink}">
                             <img src="{VideoThumbnailURL}" />
                             <div class="video-play-button"></div>
                         </a>
                     {/block:VideoThumbnail}
-                {/Block:IndexPage}
+                </div>
+            {/Block:IndexPage}
 
-                {Block:PermalinkPage}
+            {Block:PermalinkPage}
+                <div class="video post-background">
                     {Video-700}
+                </div>
 
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                {/Block:PermalinkPage}
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            {/Block:PermalinkPage}
 
-            </div>
         {/block:Video}
 
 
@@ -234,9 +238,7 @@
                     {block:AudioEmbed}
                         {AudioEmbed-640}
                     {/block:AudioEmbed}
-
                 {/Block:IndexPage}
-
 
             </div>
         {/block:Audio}

@@ -13,6 +13,11 @@ Demo available at [yuki-theme.tumblr.com](http://yuki-theme.tumblr.com)
 
 ## Changelog
 
+#### 0.2.8
+*  Add caption to photo posts on permalink pages
+*  Fix an issue with photoset captions on permalink pages
+*  Fix an issue with video captions on permalink pages
+
 #### 0.2.7
 *  Add setting to change image hover colour
 
