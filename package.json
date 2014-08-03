@@ -1,12 +1,11 @@
 {
-    "name": "yuki",
-    "version": "1.0.0",
-    "dependencies": {
-        "load-grunt-tasks": "~0.1.0"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-contrib-compass": "~0.5.0",
-        "grunt-contrib-watch": "~0.5.2"
-    }
+  "name": "yuki",
+  "version": "1.0.0",
+  "author": "Cory Gibbons",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-notify": "^1.4.0",
+    "gulp-ruby-sass": "^0.7.0"
+  }
 }
