@@ -13,6 +13,9 @@ Demo available at [yuki-theme.tumblr.com](http://yuki-theme.tumblr.com)
 
 ## Changelog
 
+#### 0.2.10
+*  Add setting to show only first image in photoset on post index
+
 #### 0.2.9
 *  Make sure all assets are hosted on Tumblr
 

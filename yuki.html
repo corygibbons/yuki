@@ -11,7 +11,7 @@
           `8b,d8'    "8a,   ,a88  88`"Yba,   88
             Y88'      `"YbbdP'Y8  88   `Y8a  88
             d8'
-           d8'     0.2.9
+           d8'     0.2.10
 
           Yuki by Cory Gibbons
           github.com/corygibbons/yuki
@@ -52,9 +52,11 @@
         <meta name="select:Scroll" content="automatic" title="Automatic">
         <meta name="if:Infinite Scroll" content="1"/>
         <meta name="if:Notes" content="0"/>
+        <meta name="if:Show Full Photoset" content="0">
 
         <style type="text/css">
         .post-background { background: {color:Post Hover}; }
+        {block:IndexPage} {block:IfNotShowFullPhotoset}.post .photoset { display: none; } .post .photoset:first-child { display: block; }{/block:IfNotShowFullPhotoset}{/block:IndexPage}
         {CustomCSS}
         </style>
 
