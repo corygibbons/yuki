@@ -1,4 +1,4 @@
-![Screenshot](http://f.cl.ly/items/471S1T1m2a3g0R1j352T/cory-gibbons-yuki.png)
+![Screenshot](http://files.corygibbons.com/cory-gibbons-yuki.png)
 # Yuki
 Yuki is a responsive masonry style theme for Tumblr by [@corygibbons](http://twitter.com/corygibbons).
 
