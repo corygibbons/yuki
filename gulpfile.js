@@ -6,6 +6,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var pug = require('gulp-pug');
+var clipboard = require('gulp-clipboard');
 
 
 gulp.task('default', ['stylus', 'pug'], function() {
@@ -15,7 +16,6 @@ gulp.task('default', ['stylus', 'pug'], function() {
 
 
 gulp.task('stylus', function() {
-    console.log('piped to stylus');
     gulp.src('src/stylus/*.styl')
     .pipe(stylus({
         'include css': true,
@@ -27,10 +27,10 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('pug', function buildHTML() {
-  console.log('piped to pug');
   return gulp.src('src/pug/*.pug')
   .pipe(pug({
     'pretty': true
   }))
+  .pipe(clipboard())
   .pipe(gulp.dest('.'));
 });
