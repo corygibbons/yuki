@@ -6,6 +6,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var pug = require('gulp-pug');
+var concat = require('gulp-concat');
 var clipboard = require('gulp-clipboard');
 
 
@@ -26,6 +27,7 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('.'));
 });
 
+
 gulp.task('pug', function buildHTML() {
   return gulp.src('src/pug/*.pug')
   .pipe(pug({
@@ -33,4 +35,17 @@ gulp.task('pug', function buildHTML() {
   }))
   .pipe(clipboard())
   .pipe(gulp.dest('.'));
+});
+
+
+
+gulp.task('lib', function() {
+  return gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
+    'node_modules/isotope-layout/dist/isotope.pkgd.min.js',
+    'node_modules/fitvids/dist/fitvids.min.js'
+  ])
+  .pipe(concat('lib.js'))
+  .pipe(gulp.dest('./dist/'));
 });
