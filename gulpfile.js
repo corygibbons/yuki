@@ -10,9 +10,10 @@ var concat = require('gulp-concat');
 var clipboard = require('gulp-clipboard');
 
 
-gulp.task('default', ['stylus', 'pug'], function() {
+gulp.task('default', ['stylus', 'pug', 'js'], function() {
     gulp.watch('src/stylus/**/*.styl', ['stylus']);
     gulp.watch('src/pug/**/*.pug', ['pug']);
+    gulp.watch('src/js/**/*.js', ['js']);
 });
 
 
@@ -47,5 +48,14 @@ gulp.task('lib', function() {
     'node_modules/fitvids/dist/fitvids.min.js'
   ])
   .pipe(concat('lib.js'))
+  .pipe(gulp.dest('./dist/'));
+});
+
+
+gulp.task('js', function() {
+  gulp.src('src/js/**/*.js')
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'))
+  .pipe(uglify())
   .pipe(gulp.dest('./dist/'));
 });
