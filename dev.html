@@ -27,6 +27,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>Yuki</h1>
+    <div class="grid">{block:Posts}{block:Text}
+      <li class="post text">{block:Title}
+        <h5><a href="{Permalink}">{Title}</a></h5>
+        {/block:Title}
+        {Body}
+      </li>{/block:Text}{block:Photo}
+      <li class="post photo"><img src="{PhotoURL-500}" alt="{PhotoAlt}">{block:Caption}
+        <div class="caption">{Caption}</div>{/block:Caption}
+      </li>{/block:Photo}{block:Panorama}
+      <li class="post panorama">{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">
+        {LinkCloseTag}
+        {block:Caption}
+        <div class="caption">{Caption}</div>{/block:Caption}
+      </li>{/block:Panorama}{block:Photoset}
+      <li class="post photoset">
+        {Photoset-500}
+        {block:Caption}
+        <div class="caption">{Caption}</div>{/block:Caption}
+      </li>{/block:Photoset}{block:Quote}
+      <li class="post quote">
+        {Quote}
+        {block:Source}
+        <div class="source">{Source}</div>{/block:Source}
+      </li>{/block:Quote}{block:Link}
+      <li class="post link"><a class="link" href="{URL}">{Name}</a>{block:Description}
+        <div class="description">{Description}</div>{/block:Description}
+      </li>{/block:Link}{block:Chat}
+      <li class="post chat">{Block:Title}
+        <h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+        <ul class="chat">{block:Lines}
+          <li class="{Alt} user_{UserNumber}">{block:Label}<span class="label">{Label}</span>
+            {/block:Label}
+            {Line}
+          </li>{/block:Lines}
+        </ul>
+      </li>{/block:Chat}{block:Video}
+      <li class="post video">
+        {Video-500}
+        {block:Caption}
+        <div class="caption">{Caption}</div>{/block:Caption}
+      </li>{/block:Video}{block:Audio}
+      <li class="post audio">
+        {AudioEmbed}
+        {block:Caption}
+        <div class="caption">{Caption}</div>{/block:Caption}
+      </li>{/block:Audio}{/block:Posts}
+    </div>
   </body>
 </html>

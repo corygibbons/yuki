@@ -1,0 +1,21 @@
+| {block:Chat}
+
+li.post.chat
+  | {Block:Title}
+  h3
+    a(href="{Permalink}") {Title}
+  | {/block:Title}
+
+  ul.chat
+    | {block:Lines}
+
+    li(class="{Alt} user_{UserNumber}")
+      | {block:Label}
+      span.label {Label}
+      | {/block:Label}
+
+      | {Line}
+
+    | {/block:Lines}
+
+| {/block:Chat}
