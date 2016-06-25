@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "author": "Cory Gibbons",
   "devDependencies": {
-    "normalize.css": "^3.0.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "0.0.8",
     "gulp-concat": "^2.3.4",
     "gulp-jshint": "^1.8.4",
     "gulp-notify": "^1.4.0",
+    "gulp-pug": "^3.0.3",
     "gulp-rename": "^1.2.0",
     "gulp-stylus": "^2.5.0",
-    "gulp-uglify": "^0.3.1"
+    "gulp-uglify": "^0.3.1",
+    "normalize.css": "^3.0.3"
   }
 }
