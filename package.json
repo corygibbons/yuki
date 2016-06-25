@@ -2,6 +2,10 @@
   "name": "yuki",
   "version": "1.0.0",
   "author": "Cory Gibbons",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/corygibbons/yuki.git"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "0.0.8",
@@ -13,6 +17,9 @@
     "gulp-rename": "^1.2.0",
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^0.3.1",
+    "imagesloaded": "^4.1.0",
+    "isotope-layout": "^3.0.1",
+    "jquery": "^3.0.0",
     "normalize.css": "^3.0.3"
   }
 }
