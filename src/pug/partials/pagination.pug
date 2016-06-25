@@ -1,0 +1,23 @@
+.pagination
+  //- Index
+  | {block:PreviousPage}
+  a(href="{PreviousPage}") &#171; Previous
+  | {/block:PreviousPage}
+
+  | {block:NextPage}
+  a(href="{NextPage}") Next &#187;
+  | {/block:NextPage}
+
+
+  //- Permalink
+  | {block:PermalinkPagination}
+
+  | {block:PreviousPost}
+  <a href="{PreviousPost}">Previous Post</a>
+  | {/block:PreviousPost}
+
+  | {block:NextPost}
+  a(href="{NextPost}") Next Post
+  | {/block:NextPost}
+
+  | {/block:PermalinkPagination}

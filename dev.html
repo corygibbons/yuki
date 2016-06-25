@@ -74,5 +74,16 @@
         <div class="caption">{Caption}</div>{/block:Caption}
       </li>{/block:Audio}{/block:Posts}
     </div>
+    <div class="pagination">{block:PreviousPage}<a href="{PreviousPage}">&#171; Previous</a>
+      {/block:PreviousPage}
+      {block:NextPage}<a href="{NextPage}">Next &#187;</a>
+      {/block:NextPage}
+      {block:PermalinkPagination}
+      {block:PreviousPost}<a href="{PreviousPost}">Previous Post</a>
+      {/block:PreviousPost}
+      {block:NextPost}<a href="{NextPost}">Next Post</a>
+      {/block:NextPost}
+      {/block:PermalinkPagination}
+    </div>
   </body>
 </html>
