@@ -1,9 +1,16 @@
 | {block:Photo}
 
+//- Displayed in the grid
+| {block:IndexPage}
 .post.photo
-  img(src="{PhotoURL-500}", alt="{PhotoAlt}")
-  | {block:Caption}
-  .caption {Caption}
-  | {/block:Caption}
+  a(href="{Permalink}")
+    img(src="{PhotoURL-500}", alt="{PhotoAlt}")
+| {/block:IndexPage}
+
+//- Displayed on permalink page
+| {block:PermalinkPage}
+.post.photo
+  img(src="{PhotoURL-HighRes}", alt="{PhotoAlt}")
+| {/block:PermalinkPage}
 
 | {/block:Photo}

@@ -33,10 +33,15 @@
         <h5><a href="{Permalink}">{Title}</a></h5>
         {/block:Title}
         {Body}
-      </div>{/block:Text}{block:Photo}
-      <div class="post photo"><img src="{PhotoURL-500}" alt="{PhotoAlt}">{block:Caption}
-        <div class="caption">{Caption}</div>{/block:Caption}
-      </div>{/block:Photo}{block:Panorama}
+      </div>{/block:Text}
+      {block:Photo}
+      {block:IndexPage}
+      <div class="post photo"><a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a></div>
+      {/block:IndexPage}
+      {block:PermalinkPage}
+      <div class="post photo"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"></div>
+      {/block:PermalinkPage}
+      {/block:Photo}{block:Panorama}
       <div class="post panorama">{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">
         {LinkCloseTag}
         {block:Caption}
