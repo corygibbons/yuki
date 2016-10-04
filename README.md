@@ -15,6 +15,12 @@ Demo available at [yuki-theme.tumblr.com](http://yuki-theme.tumblr.com)
 
 ## Changelog
 
+#### 0.2.14
+*  Add missing html markup
+
+#### 0.2.13
+*  Switch to CSS transitions for tile hover
+
 #### 0.2.12
 *  Photosets on permalink pages should now output high-res images
 
