@@ -1,5 +1,7 @@
 ![Screenshot](http://files.corygibbons.com/cory-gibbons-yuki.png)
 # Yuki
+
+[![Join the chat at https://gitter.im/corygibbons/yuki](https://badges.gitter.im/corygibbons/yuki.svg)](https://gitter.im/corygibbons/yuki?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Yuki is a responsive masonry style theme for Tumblr by [@corygibbons](http://twitter.com/corygibbons).
 
 ## Notes
