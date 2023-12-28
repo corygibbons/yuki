@@ -15,6 +15,9 @@ Demo available at [yuki-theme.tumblr.com](http://yuki-theme.tumblr.com)
 
 ## Changelog
 
+#### 0.2.15
+*  Change tumblr asset links from http to https
+
 #### 0.2.14
 *  Add missing html markup
 
